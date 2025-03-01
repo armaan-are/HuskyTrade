@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const category = document.getElementById('item-category').value;
         const price = document.getElementById('item-price').value;
         const location = document.getElementById('item-location').value;
+        const sellerName = document.getElementById('seller-name').value;
+        const contactInfo = document.getElementById('contact-info').value;
         
         // For image, use either the preview image or a default placeholder
         let pictureUrl = imagePreview.src;
@@ -50,8 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             description: description,
             category: category,
             price: price,
-            owner: "Current User", // This would ideally be the logged-in user
-            location: location
+            owner: sellerName,
+            location: location,
+            contactInfo: contactInfo
         };
         
         // Add new post to posts array

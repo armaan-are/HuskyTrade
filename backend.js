@@ -1,5 +1,5 @@
 class Profile {
-    constructor(name, picture, description, category, price, owner, location) {
+    constructor(name, picture, description, category, price, owner, location, contactInfo) {
         this.name = name;
         this.picture = picture;
         this.description = description;
@@ -7,6 +7,7 @@ class Profile {
         this.price = price;
         this.owner = owner;
         this.location = location;
+        this.contactInfo = contactInfo || "No contact info provided"; // Default value for existing posts
     }
 }
 
@@ -32,42 +33,43 @@ function loadPostsFromStorage() {
                 post.category,
                 post.price,
                 post.owner,
-                post.location
+                post.location,
+                post.contactInfo
             );
         });
-    } else {
+    } 
         // Add default posts if no saved posts exist
-        posts = [
+        posts.push(
             new Profile(
-                "MacBook Pro",
-                "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
-                "I don't want this anymore",
-                "Textbook",
-                "FREE",
-                "Buckley Hall",
-                "CT Hall"
+            "MacBook Pro",
+            "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
+            "I don't want this anymore",
+            "Textbook",
+            "FREE",
+            "Buckley Hall",
+            "CT Hall"
             ),
             new Profile(
-                "MacBook Pro",
-                "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
-                "I don't want this anymore",
-                "Textbook",
-                "FREE",
-                "Buckley Hall",
-                "CT Hall"
+            "MacBook Pro",
+            "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
+            "I don't want this anymore",
+            "Textbook",
+            "FREE",
+            "Buckley Hall",
+            "CT Hall"
             ),
             new Profile(
-                "MacBook Pro",
-                "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
-                "I don't want this anymore",
-                "Electronics",
-                "FREE",
-                "Buckley Hall",
-                "Buckley Hall"
+            "MacBook Pro",
+            "https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg",
+            "I don't want this anymore",
+            "Electronics",
+            "FREE",
+            "Buckley Hall",
+            "Buckley Hall"
             )
-        ];
+        );
     }
-}
+
 
 // Load posts when the script runs
 loadPostsFromStorage();
@@ -76,7 +78,7 @@ const container = document.getElementById("homeitems");
 
 function createItemBlockHTML(post) {
     return `
-        <div class="itemblock">
+        <div class="itemblock" data-post-id="${posts.indexOf(post)}">
             <div class="itemblock_image">
                 <img src="${post.picture}" alt="Image">
             </div>
@@ -89,6 +91,14 @@ function createItemBlockHTML(post) {
                         <img src="locationicon.png" alt="Location" style="width: 20px; height: 20px;">
                         ${post.location}
                     </div>
+                </div>
+                <div class="expanded-content" style="display: none;">
+                    <div class="seller-info">
+                        <p><strong>Seller:</strong> ${post.owner}</p>
+                        <p><strong>Category:</strong> ${post.category}</p>
+                        <p><strong>Contact:</strong> ${post.contactInfo}</p>
+                    </div>
+                    <button class="contact-button">Contact Seller</button>
                 </div>
             </div>
         </div>
@@ -104,6 +114,48 @@ function showPosts(category = null) {
             container.innerHTML += createItemBlockHTML(posts[i]);
         }
     }
+    
+    // Set up clickable functionality after posts are loaded
+    setupExpandableItems();
+}
+
+function setupExpandableItems() {
+    // Get all item blocks
+    const itemBlocks = document.querySelectorAll('.itemblock');
+    
+    // Add click event listener to each item block
+    itemBlocks.forEach(block => {
+        block.addEventListener('click', function() {
+            // Toggle the 'expanded' class
+            this.classList.toggle('expanded');
+            
+            // Find the expanded content div inside this block
+            const expandedContent = this.querySelector('.expanded-content');
+            
+            // Toggle its display
+            if (expandedContent.style.display === 'none') {
+                expandedContent.style.display = 'block';
+            } else {
+                expandedContent.style.display = 'none';
+            }
+        });
+    });
+    
+    // Add event listener for contact buttons
+    document.querySelectorAll('.contact-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Prevent the click from bubbling up to the itemblock
+            event.stopPropagation();
+            
+            // Get the post ID from the parent itemblock
+            const itemBlock = this.closest('.itemblock');
+            const postId = itemBlock.getAttribute('data-post-id');
+            const post = posts[postId];
+            
+            // Show contact information
+            alert(`Contact information for ${post.name}:\nSeller: ${post.owner}\nContact: ${post.contactInfo}\nLocation: ${post.location}`);
+        });
+    });
 }
 
 window.onload = function() {

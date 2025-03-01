@@ -34,7 +34,7 @@
     }
     
     .form-group input, .form-group textarea, .form-group select {
-        width: 100%;
+        width: 90%;
         padding: 10px;
         border: 2px solid #ddd;
         border-radius: 5px;
@@ -138,6 +138,16 @@
                 </div>
                 
                 <div class="form-group">
+                    <label for="seller-name">Your Name</label>
+                    <input type="text" id="seller-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-info">Contact Information</label>
+                    <input type="text" id="contact-info" placeholder="Email or phone number" required>
+                </div>
+                
+                <div class="form-group">
                     <label for="item-image">Upload Image</label>
                     <input type="file" id="item-image" accept="image/*">
                     <img id="image-preview" class="image-preview" alt="Image preview">
@@ -150,9 +160,5 @@
         
         <script src="backend.js"></script>
         <script src="post.js"></script>
-
-
-    <script src="backend.js"></script>
 </body>
-
 </html>

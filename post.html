@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HuskyTrade</title>
+    <script src="navbar.js"></script>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .post-container {
+        background-color: #242424;
+        border-radius: 10px;
+        padding: 20px;
+        right: 0;
+        max-width: 41%;
+        margin: 20px auto;
+        margin-left: 45%;
+        border: 2px solid #A2A2A2;
+        color: #ffffff;
+
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    
+    .form-group input, .form-group textarea, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+    
+    .image-preview {
+        margin: 10px 0;
+        max-width: 100%;
+        max-height: 200px;
+        display: none;
+    }
+    
+    .submit-btn {
+        background-color: #4A7AD3;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .submit-btn:hover {
+        background-color: #3B67C1;
+    }
+
+</style>
+<body>
+    <div class="navigation">
+        <div style="display: flex; justify-content: center;">
+            <img src="logo.png" onclick="window.location.href='index.html'">
+        </div>
+        <div class="nav-button" style="height: 40px !important; font-size: 25px !important;" onclick="window.location.href='post.html'">
+            Post
+        </div>
+        <div class="sort">
+            Sort
+        </div>
+        <div class="nav-button" id="all-button">
+            Show All
+        </div>
+        <div class="nav-button" id="textbook-button">
+            New Textbooks
+        </div>
+        <div class="nav-button" id="used-textbook-button">
+            Used Textbooks
+        </div>
+        <div class="nav-button" id="electronics-button">
+            Electronics
+        </div>
+        <div class="nav-button" id="supplies-button">
+            Supplies
+        </div>
+        <div class="nav-button" id="tutoring-button">
+            Tutoring Services
+        </div>
+        
+        </div>
+        <div class="post-container">
+            <h2 style="text-align: center; color: #fffefe;">Create a New Post</h2>
+            
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="item-name">Item Name</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-category">Category</label>
+                    <select id="item-category" required>
+                        <option value="">Select a category</option>
+                        <option value="Textbook">Textbook</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Supplies">Supplies</option>
+                        <option value="Tutoring">Tutoring</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-price">Price</label>
+                    <input type="text" id="item-price" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-location">Location</label>
+                    <input type="text" id="item-location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="item-image">Upload Image</label>
+                    <input type="file" id="item-image" accept="image/*">
+                    <img id="image-preview" class="image-preview" alt="Image preview">
+                </div>
+                
+                <button type="submit" class="submit-btn">Post Item</button>
+            </form>
+        </div>
+        
+        
+        <script src="backend.js"></script>
+        <script src="post.js"></script>
+
+
+    <script src="backend.js"></script>
+</body>
+
+</html>

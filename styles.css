@@ -1,0 +1,142 @@
+.header {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color:rgb(235, 235, 235);
+    margin-top: 20px;
+}
+.homeitems {
+right: 0;
+}
+.itemblock {
+    display: flex;
+    background-color: #0000003c;
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: auto;
+    border: 2px solid #a2a2a2;
+
+}
+
+.itemblock_image {
+    width: 50px;
+    height: 100%;
+    border-radius: 10px;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.itemblock_image {
+    width: 30%;
+    margin: 20px;
+}
+
+.itemblock__content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 10px;
+}
+
+.price_and_loc {
+    display: flex;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+
+.itemblock_price {
+    font-weight: bold;
+    margin-right: 40px;
+    font-size: 2.5vw;
+}
+.itemblock_title{
+    font-size: 2.6vw;
+    font-weight: bold;
+    margin: 10px;
+}
+.itemblock_description{
+    font-size: 1.5vw;
+    margin: 10px;
+    color: #999999;
+}
+.itemblock_location{
+    color: #999999;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: block;
+    align-content: center;
+}
+
+
+
+body{
+    background: linear-gradient(90deg,#000000, #555555);
+    background-color: #242424;
+    font-family: Arial, sans-serif;
+    display: flex;
+    color: white;
+    overflow-y: none;
+}
+
+.navigation{
+    width: 35%;
+    position: fixed;
+    margin: 20px;
+}
+
+.nav-button{
+    background-color:#242424;   
+    border: 2px solid #a2a2a2;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+    display: block;
+    align-content: center;
+}
+
+.nav-button:hover{
+    background-color: #373737;
+}
+.post-container{
+    width: 65%;
+    margin-left: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .navigation{
+        width: 85%;
+        position: unset;
+        margin: 20px;
+    }
+    .post-container{
+        width: 100% !important;
+        margin-left: 14px !important;
+        max-width: 83% !important;
+    }
+   body{
+       display: unset;
+   }
+
+}

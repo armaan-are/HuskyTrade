@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="itemblock"> 
+        <div class="itemblock_image">
+            <img src="https://smithfamilybookstore.com/wp-content/uploads/2019/11/girls-reading-3.jpg" alt="Image">
+        </div>
+        <div class="itemblock__content">
+            <div class="itemblock_title">English Textbook</div>
+            <div class="itemblock_description">I dont want this anymore</div>
+            <div class="price_and_loc">
+                <div class="itemblock_price">FREE</div>
+                <div class="itemblock_location"> 
+                    <img src="locationicon.png" alt="Location" style="width: 20px; height: 20px;">
+                     Buckley Hall
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .itemblock {
+            display: flex;
+            background-color: #092d5b;
+            color: white;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .itemblock_image {
+            width: 30%;
+            margin: 20px;
+        }
+
+        .itemblock__content {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            padding: 10px;
+        }
+
+        .price_and_loc {
+            display: flex;
+            margin-top: auto;
+            margin-left: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        .itemblock_price {
+            font-weight: bold;
+            margin-right: 40px;
+            font-size: 40px;
+        }
+        .itemblock_title{
+            font-size: 30px;
+            font-weight: bold;
+            margin: 10px;
+        }
+        .itemblock_description{
+            font-size: 16px;
+            margin: 10px;
+        }
+        .itemblock_location{
+            color: #999999;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            align-content: center;
+        }
+
+    </style>
+
+</body>
+</html>
